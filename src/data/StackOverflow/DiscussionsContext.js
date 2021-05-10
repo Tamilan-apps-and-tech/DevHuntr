@@ -1,7 +1,7 @@
 import React, {createContext, useState, useContext, useEffect} from "react";
-import {UrlContext} from "./UrlContext";
-import axios from "../utils/axios";
-import {PageContext} from "./PageContext";
+import {UrlContext} from "../UrlContext";
+import axios from "../../utils/StackOverflowAxios";
+import {PageContext} from "../PageContext";
 
 export const DiscussionsContext = React.createContext()
 

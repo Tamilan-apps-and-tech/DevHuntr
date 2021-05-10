@@ -1,12 +1,12 @@
 import React from 'react';
 
-function DiscussionChip(props) {
+function PrStateChip(props) {
 
-    if (props.text === "recommended"){
+    if (props.text === "no comments"){
         return (
             <div
-                className='bg-blue-chip flex flex-row w-min inline-block whitespace-nowrap object-fit rounded-full px-3 py-1 text-white-secondaryText mx-1.5 font-montserrat'>
-                recommended
+                className='bg-orange-chip  flex flex-row w-min inline-block whitespace-nowrap object-fit rounded-full px-3 py-1 text-white-secondaryText mx-1.5 font-montserrat'>
+                no comments
             </div>
         );
     }else {
@@ -17,6 +17,8 @@ function DiscussionChip(props) {
             </div>
         );
     }
+
+
 }
 
-export default DiscussionChip;
+export default PrStateChip;

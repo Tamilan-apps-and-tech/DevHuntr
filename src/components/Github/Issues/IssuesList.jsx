@@ -1,15 +1,13 @@
 import {React, useEffect, useState, useContext, createRef} from 'react';
-import DiscussionCard from "./DiscussionCard";
-import Loading from "./Loading";
-import {DiscussionsContext} from "../data/DiscussionsContext";
-import PageSwitcher from "./PageSwitcher";
-import prev from "../assets/prev.svg";
-import next from "../assets/next.svg";
-import {PageContext} from "../data/PageContext";
+import IssueCard from "./IssueCard";
+import Loading from "../../Loading";
+import PageSwitcher from "../../PageSwitcher";
+import {PageContext} from "../../../data/PageContext";
+import {IssuesContext} from "../../../data/Github/IssuseContext";
 
-function DiscussionList(props) {
+function IssuesList(props) {
 
-    const [discussions, setDiscussions] = useContext(DiscussionsContext)
+    const [issues, setISsues] = useContext(IssuesContext)
     const scrollRef = createRef()
     const [page,setPage] =useContext(PageContext)
 
@@ -31,7 +29,7 @@ function DiscussionList(props) {
 
 
 
-    if (discussions.length === 0 ){
+    if (issues.length === 0 ){
         return (
             <Loading/>
         )
@@ -41,10 +39,10 @@ function DiscussionList(props) {
             <div ref={scrollRef} className='w-full h-screen overflow-y-scroll overflow-hidden z-0 '>
                 <div >
                 {
-                    discussions.map((item,index) => (
+                    issues.map((item,index) => (
 
                         <div  key={index} className='flex flex-col overflow-hidden' >
-                            <DiscussionCard item={item}  />
+                            <IssueCard item={item}  />
                         </div>
 
                     ))
@@ -59,4 +57,4 @@ function DiscussionList(props) {
 
 }
 
-export default DiscussionList;
+export default IssuesList;

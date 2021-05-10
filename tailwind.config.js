@@ -9,6 +9,9 @@ module.exports = {
         text: '#ff4444',
         accent:'#ff4444'
       },
+      orange: {
+        chip: '#FF7144',
+      },
       blue:{
         chip: '#444dff',
       },

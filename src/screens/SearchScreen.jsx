@@ -1,10 +1,9 @@
 import React, {useContext} from 'react';
 import {useLocation} from 'react-router-dom'
-import SearchCard from "../components/SearchCard";
-import DiscussionList from "../components/DiscussionList";
 import {QueryContext} from "../data/QueryContext";
-import PageSwitcher from "../components/PageSwitcher";
 import {PageContext} from "../data/PageContext";
+import {SiteContext} from "../data/SiteContext";
+import ResultsList from "../components/ResultsList";
 
 
 function SearchScreen(props) {
@@ -14,30 +13,34 @@ function SearchScreen(props) {
         return new URLSearchParams(useLocation().search)
     }
 
-    let q = useQuery().get('q')
+    let qparam = useQuery().get('q')
     const [query,setQuery] = useContext(QueryContext)
-    if (q !== query) {
-        setQuery(q)
-    }
+
+        setQuery(qparam)
+
 
     let pageparam = useQuery().get('page')
+
+
     const [page,setPage] = useContext(PageContext)
 
-    if (pageparam != 1) {
         setPage(pageparam)
-    }
-    pageparam = 0
+
+
+    let siteparam = useQuery().get('site')
+    const [site,setSite] = useContext(SiteContext)
+    setSite(siteparam)
+
 
 
     return (
 
         <div className='w-full h-full flex flex-col '>
-            <SearchCard/>
-
-            <DiscussionList/>
+          <ResultsList/>
         </div>
 
     );
+
 }
 
 export default SearchScreen;

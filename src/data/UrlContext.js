@@ -2,25 +2,46 @@ import React, {createContext, useState, useContext, useEffect} from "react";
 import {QueryContext} from "./QueryContext";
 import {PageContext} from "./PageContext";
 import {changeEndpoint} from "../utils/EnpointChanger";
+import {SiteContext} from "./SiteContext";
+import data from "./Sites.json";
 
 export const UrlContext = React.createContext()
 
 export const UrlProvider = (props) => {
 
-    const [url,setUrl] = useState("")
+    const [url,setUrl] = useState()
 
     const [query,setQuery] = useContext(QueryContext)
     const [page,setPage] = useContext(PageContext)
+    const [site,setSite] = useContext(SiteContext)
+
+
 
     useEffect(() => {
-            changeEndpoint(query, page)
-    },[page,query])
-
-    useEffect(() => {
-    if (query.length != 0) {
-        setUrl(`search/advanced?page=${page}&order=desc&sort=activity&q=${query}&site=stackoverflow`)
+        if (data.sites[site].name === "StackOverflow") {
+            setUrl(`search/advanced?page=${page}&order=desc&sort=relevance&q=${query}&site=stackoverflow`
+        )
         }
-    },[query,page])
+
+        if (data.sites[site].name === "Github Issues"){
+            setUrl(`/issues?q=${query}+is:issue&per_page=25&page=${page}`)
+
+        }
+
+        if (data.sites[site].name === "Github Prs"){
+            setUrl(`/issues?q=${query}+is:pr&per_page=25&page=${page}`)
+
+        }
+
+        if (data.sites[site].name === "Github Repo"){
+            setUrl(`/repositories?q=${query}+in:readme&per_page=25&page=${page}`)
+
+        }
+
+
+    },[query,page,site])
+
+
 
 
 

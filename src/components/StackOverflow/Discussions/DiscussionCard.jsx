@@ -24,7 +24,7 @@ function DiscussionCard(props) {
                 </div>
             </div>
         );
-    }else {
+    } else if (props.item.hasOwnProperty("accepted_answer_id") === false){
         return (
             <div className='bg-black-secondary m-3 w-11/12 justify-between self-center  flex-col flex rounded-2xl flex-col'>
                 <a href={'https://stackoverflow.com/questions/'+props.item.question_id}>
