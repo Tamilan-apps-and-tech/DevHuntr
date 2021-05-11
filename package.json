@@ -1,7 +1,6 @@
 {
   "name": "devhuntr",
   "main": "src/electron/main.js",
-  "homepage": "https://tamilan-apps-and-tech.github.io/DevHuntr/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -25,8 +24,8 @@
     "postcss": "^7.0.35"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "CI='' craco build",
+    "start": "CLIENT_ENV=development CI='' craco start",
+    "build": "CLIENT_ENV=development CI='' craco build",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
