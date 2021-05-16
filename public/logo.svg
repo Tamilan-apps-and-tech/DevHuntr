@@ -1,0 +1,18 @@
+<svg width="315" height="315" viewBox="0 0 315 315" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="311" height="311" rx="61" fill="url(#paint0_radial)"/>
+<g filter="url(#filter0_f)">
+<path d="M70 201L217.5 310.5C229.833 310.5 252 310.893 255 310.5C297.8 304.9 309.667 271.5 310.5 255V196L194.5 107.5H170.5V113.5H70V201Z" fill="black" fill-opacity="0.2"/>
+</g>
+<path d="M68.75 112.5H110.125C119.708 112.5 128.208 114.292 135.625 117.875C143.042 121.458 148.792 126.542 152.875 133.125C156.958 139.708 159 147.417 159 156.25C159 165.083 156.958 172.792 152.875 179.375C148.792 185.958 143.042 191.042 135.625 194.625C128.208 198.208 119.708 200 110.125 200H68.75V112.5ZM109.125 180.25C116.625 180.25 122.625 178.125 127.125 173.875C131.708 169.625 134 163.75 134 156.25C134 148.75 131.708 142.875 127.125 138.625C122.625 134.375 116.625 132.25 109.125 132.25H93.5V180.25H109.125ZM215.021 131.125C223.438 131.125 230.188 133.625 235.271 138.625C240.438 143.625 243.021 151.167 243.021 161.25V200H219.271V165.125C219.271 155.875 215.563 151.25 208.146 151.25C204.063 151.25 200.771 152.583 198.271 155.25C195.855 157.917 194.646 161.917 194.646 167.25V200H170.896V107.25H194.646V138.5C197.23 136.083 200.271 134.25 203.771 133C207.271 131.75 211.021 131.125 215.021 131.125Z" fill="white"/>
+<defs>
+<filter id="filter0_f" x="66" y="103.5" width="248.5" height="211.174" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur"/>
+</filter>
+<radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(155.5 155.5) rotate(90) scale(155.5)">
+<stop stop-color="#ED6057"/>
+<stop offset="1" stop-color="#FF4444"/>
+</radialGradient>
+</defs>
+</svg>

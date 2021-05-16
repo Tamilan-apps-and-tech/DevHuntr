@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css'
 import App from './App';
-import {UrlContext} from "./data/UrlContext";
-import {DiscussionsProvider} from "./data/StackOverflow/DiscussionsContext";
 
 ReactDOM.render(
   <React.StrictMode>

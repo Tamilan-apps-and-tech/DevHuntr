@@ -19,7 +19,7 @@ export const UrlProvider = (props) => {
 
     useEffect(() => {
         if (data.sites[site].name === "StackOverflow") {
-            setUrl(`search/advanced?page=${page}&order=desc&sort=relevance&q=${query}&site=stackoverflow`
+            setUrl(`search/advanced?page=${page}&order=desc&sort=votes&q=${query}&site=stackoverflow`
         )
         }
 
@@ -38,6 +38,25 @@ export const UrlProvider = (props) => {
 
         }
 
+        if (data.sites[site].name === "Github Repo"){
+            setUrl(`/repositories?q=${query}+in:readme&per_page=25&page=${page}`)
+
+        }
+
+        if (data.sites[site].name === "Jetpack Android"){
+            setUrl(`/repositories?q=${query}+in:readme&per_page=25&page=${page}`)
+
+        }
+
+        if (data.sites[site].name === "Android Docs"){
+            setUrl(`/android?q=${query}`)
+
+        }
+
+        if (data.sites[site].name === "Npm Package"){
+            setUrl(`/repositories?q=${query}+in:readme&per_page=25&page=${page}`)
+
+        }
 
     },[query,page,site])
 
