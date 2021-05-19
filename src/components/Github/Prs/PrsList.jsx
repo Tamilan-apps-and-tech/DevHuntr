@@ -4,12 +4,15 @@ import Loading from "../../Loading";
 import PageSwitcher from "../../PageSwitcher";
 import {PageContext} from "../../../data/PageContext";
 import {PrContext} from "../../../data/Github/PrsContext";
+import {LoadingContext} from "../../../data/LoadingContext";
+import NoResult from "../../NoResult";
 
 function PrsList(props) {
 
     const [prs, setPrs] = useContext(PrContext)
     const scrollRef = createRef()
     const [page,setPage] =useContext(PageContext)
+    const [status,setStatus] = useContext(LoadingContext)
 
     function nextPage(){
         setPage(page+1)
@@ -30,9 +33,15 @@ function PrsList(props) {
 
 
     if (prs.length === 0 ){
-        return (
-            <Loading/>
-        )
+        if (status === true){
+            return (
+                <Loading/>
+            )
+        }else {
+            return (
+                <NoResult/>
+            )
+        }
     }else {
         return (
 

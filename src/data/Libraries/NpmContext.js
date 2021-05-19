@@ -1,27 +1,26 @@
 import React, {createContext, useState, useContext, useEffect} from "react";
 import {UrlContext} from "../UrlContext";
-import axios from "../../utils/GithubAxios";
+import axios from "../../utils/NpmAxios";
 import {PageContext} from "../PageContext";
 import {LoadingContext} from "../LoadingContext";
 
-export const IssuesContext = React.createContext()
+export const NpmContext = React.createContext()
 
-export const IssuesProvider = (props) => {
+export const NpmProvider = (props) => {
 
     const [url,setUrl] = useContext(UrlContext)
     const [page,setPage] = useContext(PageContext)
-    const [issues,setIssues] = useState([])
+    const [npms,setNpms] = useState([])
     const [status,setStatus] = useContext(LoadingContext)
 
     useEffect(() => {
 
 
-        async function getIssues(){
-
+        async function getLibs(){
             setStatus(true)
             try{
                 await axios.get(url).then((res) => {
-                    setIssues(res.data.items)
+                    setNpms(res.data)
                     setStatus(false)
                 })
 
@@ -30,13 +29,13 @@ export const IssuesProvider = (props) => {
             }
 
         }
-        getIssues()
+        getLibs()
 
     },[url])
 
     return(
-        <IssuesContext.Provider value={[issues,setIssues]}>
+        <NpmContext.Provider value={[npms,setNpms]}>
             {props.children}
-        </IssuesContext.Provider>
+        </NpmContext.Provider>
     )
 }

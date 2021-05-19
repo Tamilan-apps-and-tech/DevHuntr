@@ -14,6 +14,10 @@ import RepoList from "./Github/Repos/RepoList";
 import TypoCard from "./TypoCard";
 import {AndroidDocsProvider} from "../data/Docs/AndroidDocsContext";
 import AndroidDocsList from "./Docs/AndroidDocsList";
+import {JetpackProvider} from "../data/Libraries/JetpackContext";
+import JetapackList from "./Libraries/JetapackAndroid/JetapackList";
+import {NpmProvider} from "../data/Libraries/NpmContext";
+import NpmList from "./Libraries/Npm/NpmList";
 
 function ResultsList(props) {
 
@@ -72,6 +76,26 @@ function ResultsList(props) {
                     <TypoCard/>
                     <AndroidDocsList/>
                 </AndroidDocsProvider>
+            </div>
+        );
+    } if (data.sites[site].name === "Jetpack Android") {
+        return (
+            <div className='w-full h-full flex flex-col '>
+                <JetpackProvider>
+                    <SearchCard/>
+                    <TypoCard/>
+                    <JetapackList/>
+                </JetpackProvider>
+            </div>
+        );
+    }if (data.sites[site].name === "Npm Package") {
+        return (
+            <div className='w-full h-full flex flex-col '>
+                <NpmProvider>
+                    <SearchCard/>
+                    <TypoCard/>
+                    <NpmList/>
+                </NpmProvider>
             </div>
         );
     }

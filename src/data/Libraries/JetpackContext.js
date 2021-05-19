@@ -1,27 +1,26 @@
 import React, {createContext, useState, useContext, useEffect} from "react";
 import {UrlContext} from "../UrlContext";
-import axios from "../../utils/GithubAxios";
+import axios from "../../utils/JetpackAxios";
 import {PageContext} from "../PageContext";
 import {LoadingContext} from "../LoadingContext";
 
-export const IssuesContext = React.createContext()
+export const JetpackContext = React.createContext()
 
-export const IssuesProvider = (props) => {
+export const JetpackProvider = (props) => {
 
     const [url,setUrl] = useContext(UrlContext)
     const [page,setPage] = useContext(PageContext)
-    const [issues,setIssues] = useState([])
+    const [jplibs,setJplibs] = useState([])
     const [status,setStatus] = useContext(LoadingContext)
 
     useEffect(() => {
 
 
-        async function getIssues(){
-
+        async function getLibs(){
             setStatus(true)
             try{
                 await axios.get(url).then((res) => {
-                    setIssues(res.data.items)
+                    setJplibs(res.data)
                     setStatus(false)
                 })
 
@@ -30,13 +29,13 @@ export const IssuesProvider = (props) => {
             }
 
         }
-        getIssues()
+        getLibs()
 
     },[url])
 
     return(
-        <IssuesContext.Provider value={[issues,setIssues]}>
+        <JetpackContext.Provider value={[jplibs,setJplibs]}>
             {props.children}
-        </IssuesContext.Provider>
+        </JetpackContext.Provider>
     )
 }

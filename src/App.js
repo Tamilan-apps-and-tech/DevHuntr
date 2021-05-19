@@ -9,6 +9,7 @@ import {PageProvider} from "./data/PageContext";
 import {SiteProvider} from "./data/SiteContext";
 import {IssuesProvider} from "./data/Github/IssuseContext";
 import {TypoProvider} from "./data/TypoContext";
+import {LoadingProvider} from "./data/LoadingContext";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <QueryProvider>
       <UrlProvider>
           <TypoProvider>
+              <LoadingProvider>
       <main>
           <BrowserRouter>
           <Switch>
@@ -25,6 +27,7 @@ function App() {
           </Switch>
           </BrowserRouter>
       </main>
+              </LoadingProvider>
           </TypoProvider>
       </UrlProvider>
       </QueryProvider>

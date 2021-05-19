@@ -9,6 +9,8 @@ function AndroidDocsCard(props) {
                 <a href={props.item.link}>
                     <h1 className='font-montserrat text-white-secondaryText text-xl ml-6 mt-4'>{props.item.title}</h1>
                 </a>
+                <h1 className='font-montserrat text-orange-chip mt-2  text-xl ml-6'>{props.item.linkRef}</h1>
+                <h1 className='font-montserrat text-white-secondaryText opacity-50 text-xl ml-6 mb-4 mt-2'>{props.item.desc}</h1>
 
             </div>
         );

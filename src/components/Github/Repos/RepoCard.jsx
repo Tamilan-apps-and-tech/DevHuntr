@@ -23,7 +23,7 @@ function RepoCard(props) {
             <div
                 className='bg-black-secondary m-3 w-11/12 justify-between self-center  flex-col flex rounded-2xl flex-col'>
                 <a href={props.item.html_url}>
-                    <h1 className='font-montserrat text-white-secondaryText text-2xl ml-6 mr-6 mt-4'>{props.item.full_name}</h1>
+                    <h1 className='font-montserrat text-white-secondaryText text-2xl ml-6 mr-6 mt-4 '>{props.item.full_name}</h1>
                 </a>
 
 

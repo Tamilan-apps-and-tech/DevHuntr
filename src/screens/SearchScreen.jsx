@@ -34,7 +34,7 @@ function SearchScreen(props) {
 
     return (
 
-        <div className='w-full h-full flex flex-col '>
+        <div className='overflow-hidden w-full h-full flex flex-col '>
           <ResultsList/>
         </div>
 

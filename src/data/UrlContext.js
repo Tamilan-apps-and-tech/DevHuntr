@@ -44,7 +44,7 @@ export const UrlProvider = (props) => {
         }
 
         if (data.sites[site].name === "Jetpack Android"){
-            setUrl(`/repositories?q=${query}+in:readme&per_page=25&page=${page}`)
+            setUrl(`/jp?q=${query}`)
 
         }
 
@@ -54,7 +54,7 @@ export const UrlProvider = (props) => {
         }
 
         if (data.sites[site].name === "Npm Package"){
-            setUrl(`/repositories?q=${query}+in:readme&per_page=25&page=${page}`)
+            setUrl(`/npm?q=${query}`)
 
         }
 

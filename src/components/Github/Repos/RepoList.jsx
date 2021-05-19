@@ -4,17 +4,26 @@ import Loading from "../../Loading";
 import PageSwitcher from "../../PageSwitcher";
 import {PageContext} from "../../../data/PageContext";
 import {RepoContext} from "../../../data/Github/RepoContext";
+import {LoadingContext} from "../../../data/LoadingContext";
+import NoResult from "../../NoResult";
 
 function RepoList(props) {
 
     const [repo, setRepo] = useContext(RepoContext)
     const scrollRef = createRef()
     const [page,setPage] =useContext(PageContext)
+    const [status,setStatus] = useContext(LoadingContext)
 
     if (repo.length === 0 ){
-        return (
-            <Loading/>
-        )
+        if (status === true){
+            return (
+                <Loading/>
+            )
+        }else {
+            return (
+                <NoResult/>
+            )
+        }
     }else {
         return (
 

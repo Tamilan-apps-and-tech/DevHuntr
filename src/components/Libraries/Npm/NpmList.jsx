@@ -1,15 +1,16 @@
 import {React, useEffect, useState, useContext, createRef} from 'react';
-import IssueCard from "./IssueCard";
+import NpmCard from "./NpmCard";
 import Loading from "../../Loading";
 import PageSwitcher from "../../PageSwitcher";
 import {PageContext} from "../../../data/PageContext";
-import {IssuesContext} from "../../../data/Github/IssuseContext";
+import {JetpackContext} from "../../../data/Libraries/JetpackContext";
+import {NpmContext} from "../../../data/Libraries/NpmContext";
 import {LoadingContext} from "../../../data/LoadingContext";
 import NoResult from "../../NoResult";
 
-function IssuesList(props) {
+function NpmList(props) {
 
-    const [issues, setISsues] = useContext(IssuesContext)
+    const [npms, setSetNpms] = useContext(NpmContext)
     const scrollRef = createRef()
     const [page,setPage] =useContext(PageContext)
     const [status,setStatus] = useContext(LoadingContext)
@@ -32,7 +33,7 @@ function IssuesList(props) {
 
 
 
-    if (issues.length === 0 ){
+    if (npms.length === 0 ){
         if (status === true){
             return (
                 <Loading/>
@@ -46,24 +47,11 @@ function IssuesList(props) {
         return (
 
             <div ref={scrollRef} className='w-full h-screen overflow-y-scroll overflow-hidden z-0 '>
-                <div >
-                {
-                    issues.map((item,index) => (
-
-                        <div  key={index} className='flex flex-col overflow-hidden' >
-                            <IssueCard item={item}  />
-                        </div>
-
-                    ))
-                }
-                </div>
-
-                <PageSwitcher scrollRef={scrollRef}/>
-
+                            <NpmCard item={npms}  />
             </div>
         );
     }
 
 }
 
-export default IssuesList;
+export default NpmList;

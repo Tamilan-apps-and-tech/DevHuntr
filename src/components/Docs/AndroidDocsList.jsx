@@ -3,13 +3,16 @@ import AndroidDocsCard from "./AndroidDocsCard";
 import Loading from "../Loading";
 import PageSwitcher from "../PageSwitcher";
 import {PageContext} from "../../data/PageContext";
+import {LoadingContext} from "../../data/LoadingContext";
 import {AndroidDocsContext} from "../../data/Docs/AndroidDocsContext";
+import NoResult from "../NoResult";
 
 function AndroidDocsList(props) {
 
     const [docs, setDocs] = useContext(AndroidDocsContext)
     const scrollRef = createRef()
     const [page,setPage] =useContext(PageContext)
+    const [status,setStatus] = useContext(LoadingContext)
 
     function nextPage(){
         setPage(page+1)
@@ -30,9 +33,18 @@ function AndroidDocsList(props) {
 
 
     if (docs.length === 0 ){
-        return (
-            <Loading/>
-        )
+
+        if (status === true){
+
+            return (
+                <Loading/>
+            )
+        }else {
+            return (
+                <NoResult/>
+            )
+        }
+
     }else {
         return (
 
@@ -48,8 +60,6 @@ function AndroidDocsList(props) {
                     ))
                 }
                 </div>
-
-                <PageSwitcher scrollRef={scrollRef}/>
 
             </div>
         );

@@ -4,12 +4,15 @@ import Loading from "../../Loading";
 import {DiscussionsContext} from "../../../data/StackOverflow/DiscussionsContext";
 import PageSwitcher from "../../PageSwitcher";
 import {PageContext} from "../../../data/PageContext";
+import {LoadingContext} from "../../../data/LoadingContext";
+import NoResult from "../../NoResult";
 
 function DiscussionList(props) {
 
     const [discussions, setDiscussions] = useContext(DiscussionsContext)
     const scrollRef = createRef()
     const [page,setPage] =useContext(PageContext)
+    const [status,setStatus] = useContext(LoadingContext)
 
     function nextPage(){
         setPage(page+1)
@@ -30,9 +33,15 @@ function DiscussionList(props) {
 
 
     if (discussions.length === 0 ){
-        return (
-            <Loading/>
-        )
+        if (status === true){
+            return (
+                <Loading/>
+            )
+        }else {
+            return (
+                <NoResult/>
+            )
+        }
     }else {
         return (
 

@@ -1,15 +1,15 @@
 import {React, useEffect, useState, useContext, createRef} from 'react';
-import IssueCard from "./IssueCard";
+import JetpackCard from "./JetpackCard";
 import Loading from "../../Loading";
 import PageSwitcher from "../../PageSwitcher";
 import {PageContext} from "../../../data/PageContext";
-import {IssuesContext} from "../../../data/Github/IssuseContext";
+import {JetpackContext} from "../../../data/Libraries/JetpackContext";
 import {LoadingContext} from "../../../data/LoadingContext";
 import NoResult from "../../NoResult";
 
-function IssuesList(props) {
+function JetapackList(props) {
 
-    const [issues, setISsues] = useContext(IssuesContext)
+    const [jplibs, setJplibs] = useContext(JetpackContext)
     const scrollRef = createRef()
     const [page,setPage] =useContext(PageContext)
     const [status,setStatus] = useContext(LoadingContext)
@@ -32,7 +32,7 @@ function IssuesList(props) {
 
 
 
-    if (issues.length === 0 ){
+    if (jplibs.length === 0 ){
         if (status === true){
             return (
                 <Loading/>
@@ -48,17 +48,16 @@ function IssuesList(props) {
             <div ref={scrollRef} className='w-full h-screen overflow-y-scroll overflow-hidden z-0 '>
                 <div >
                 {
-                    issues.map((item,index) => (
+                    jplibs.map((item,index) => (
 
                         <div  key={index} className='flex flex-col overflow-hidden' >
-                            <IssueCard item={item}  />
+                            <JetpackCard item={item}  />
                         </div>
 
                     ))
                 }
                 </div>
 
-                <PageSwitcher scrollRef={scrollRef}/>
 
             </div>
         );
@@ -66,4 +65,4 @@ function IssuesList(props) {
 
 }
 
-export default IssuesList;
+export default JetapackList;

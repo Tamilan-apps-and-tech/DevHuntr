@@ -1,6 +1,7 @@
 import React, {createContext, useState, useContext, useEffect} from "react";
 import {UrlContext} from "../UrlContext";
-import axios from "../../utils/DefaultAxios";
+import axios from "../../utils/AndroidDocsAxios";
+import {LoadingContext} from "../LoadingContext";
 
 
 export const AndroidDocsContext = createContext()
@@ -9,19 +10,20 @@ export const AndroidDocsProvider = (props) => {
 
     const [url,setUrl] = useContext(UrlContext)
     const [docs,setDocs] = useState([])
+    const [status,setStatus] = useContext(LoadingContext)
+
 
     useEffect(() => {
 
 
         async function getRepos(){
-
+            setStatus(true)
             try{
-                const res = await axios.get(url,{
-                    headers: {
-                        'Access-Control-Allow-Origin':'http://localhost:3000',
-                    }
+                await axios.get(url).then((res) => {
+                    setDocs(res.data)
+                    setStatus(false)
                 })
-                setDocs(res.data)
+
             }catch (err){
                 console.error(err)
             }

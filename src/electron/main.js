@@ -4,7 +4,13 @@ const isDev = require('electron-is-dev');
 
 
 app.whenReady().then(() => {
-    const win = new BrowserWindow({width: 800, height: 600 })
+    const win = new BrowserWindow({
+        width: 800,
+        height: 600,
+        webPreferences: {
+            webSecurity: false
+        }
+    })
 
     const menu = new Menu()
     menu.append(new MenuItem({
@@ -24,13 +30,14 @@ app.whenReady().then(() => {
     win.menuBarVisible = false
     win.minimizable = false
 
+
     if (isDev) {
-        win.loadURL('http://localhost:3000/search?q=Cannot%20create%20an%20instance%20of%20class%20ViewModel&page=1')
+        win.loadURL('http://localhost:3000/')
     } else {
         win.loadFile(__dirname+'index.html/search?q=Cannot%20create%20an%20instance%20of%20class%20ViewModel&page=1')
     }
 
-    const ret = globalShortcut.register('CommandOrControl+s+h', () => {
+    const ret = globalShortcut.register('CommandOrControl+d+h', () => {
 
         if (win.isMinimized()){
             win.maximize()
