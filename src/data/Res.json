@@ -1,0 +1,66 @@
+[
+        {
+            "id": 0,
+            "name": "Android"
+        },
+        {
+            "id": 1,
+            "name": "Flutter"
+        },
+        {
+            "id": 2,
+            "name": "ReactNative"
+        },
+        {
+            "id": 3,
+            "name": "MozillaWeb"
+        },
+        {
+            "id": 4,
+            "name": "Docker"
+        },
+        {
+            "id": 5,
+            "name": "Firebase"
+        },
+        {
+            "id": 6,
+            "name": "TensorFlow"
+        },
+        {
+            "id": 7,
+            "name": "GoogleWeb"
+        },
+        {
+            "id": 8,
+            "name": "GoogleMaps"
+        },
+        {
+            "id": 9,
+            "name": "Django"
+        },
+        {
+            "id": 10,
+            "name": "Rudy"
+        },
+        {
+            "id": 11,
+            "name": "Dart"
+        },
+        {
+            "id": 12,
+            "name": "Jest"
+        },
+        {
+            "id": 13,
+            "name": "MongoDb"
+        },
+        {
+            "id": 14,
+            "name": "Kubernetes"
+        },
+        {
+            "id": 15,
+            "name": "GoogleCloud"
+        }
+    ]

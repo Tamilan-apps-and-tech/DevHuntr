@@ -1,6 +1,4 @@
 const {app, BrowserWindow,globalShortcut,Menu, MenuItem} = require('electron')
-const isDev = require('electron-is-dev');
-
 
 
 app.whenReady().then(() => {
@@ -31,11 +29,9 @@ app.whenReady().then(() => {
     win.minimizable = false
 
 
-    if (isDev) {
+
         win.loadURL('http://localhost:3000/')
-    } else {
-        win.loadFile(__dirname+'index.html/search?q=Cannot%20create%20an%20instance%20of%20class%20ViewModel&page=1')
-    }
+
 
     const ret = globalShortcut.register('CommandOrControl+d+h', () => {
 
@@ -61,6 +57,3 @@ app.on('window-all-closed', () => {
         app.quit()
     }
 })
-
-
-

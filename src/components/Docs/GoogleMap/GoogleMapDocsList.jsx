@@ -1,15 +1,14 @@
 import {React, useEffect, useState, useContext, createRef} from 'react';
-import AndroidDocsCard from "./AndroidDocsCard";
-import Loading from "../Loading";
-import PageSwitcher from "../PageSwitcher";
-import {PageContext} from "../../data/PageContext";
-import {LoadingContext} from "../../data/LoadingContext";
-import {AndroidDocsContext} from "../../data/Docs/AndroidDocsContext";
-import NoResult from "../NoResult";
+import Loading from "../../Loading";
+import {PageContext} from "../../../data/PageContext";
+import {LoadingContext} from "../../../data/LoadingContext";
+import NoResult from "../../NoResult";
+import GoogleMapDocsCard from "./GoogleMapDocsCard";
+import {GoogleMapDocsContext} from "../../../data/Docs/GoogleMapDocsContext";
 
-function AndroidDocsList(props) {
+function GoogleMapDocsList(props) {
 
-    const [docs, setDocs] = useContext(AndroidDocsContext)
+    const [docs, setDocs] = useContext(GoogleMapDocsContext)
     const scrollRef = createRef()
     const [page,setPage] =useContext(PageContext)
     const [status,setStatus] = useContext(LoadingContext)
@@ -54,7 +53,7 @@ function AndroidDocsList(props) {
                     docs.map((item,index) => (
 
                         <div  key={index} className='flex flex-col overflow-hidden' >
-                            <AndroidDocsCard item={item}  />
+                            <GoogleMapDocsCard item={item}  />
                         </div>
 
                     ))
@@ -67,4 +66,4 @@ function AndroidDocsList(props) {
 
 }
 
-export default AndroidDocsList;
+export default GoogleMapDocsList;

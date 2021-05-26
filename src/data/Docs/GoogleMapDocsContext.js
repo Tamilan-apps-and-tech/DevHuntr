@@ -4,9 +4,9 @@ import axios from "../../utils/DocsAxios";
 import {LoadingContext} from "../LoadingContext";
 
 
-export const AndroidDocsContext = createContext()
+export const GoogleMapDocsContext = createContext()
 
-export const AndroidDocsProvider = (props) => {
+export const GoogleMapDocsProvider = (props) => {
 
     const [url,setUrl] = useContext(UrlContext)
     const [docs,setDocs] = useState([])
@@ -34,8 +34,8 @@ export const AndroidDocsProvider = (props) => {
     },[url])
 
     return(
-        <AndroidDocsContext.Provider value={[docs,setDocs]}>
+        <GoogleMapDocsContext.Provider value={[docs,setDocs]}>
             {props.children}
-        </AndroidDocsContext.Provider>
+        </GoogleMapDocsContext.Provider>
     )
 }

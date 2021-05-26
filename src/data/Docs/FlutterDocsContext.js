@@ -4,9 +4,9 @@ import axios from "../../utils/DocsAxios";
 import {LoadingContext} from "../LoadingContext";
 
 
-export const AndroidDocsContext = createContext()
+export const FlutterDocsContext = createContext()
 
-export const AndroidDocsProvider = (props) => {
+export const FlutterDocsProvider = (props) => {
 
     const [url,setUrl] = useContext(UrlContext)
     const [docs,setDocs] = useState([])
@@ -34,8 +34,8 @@ export const AndroidDocsProvider = (props) => {
     },[url])
 
     return(
-        <AndroidDocsContext.Provider value={[docs,setDocs]}>
+        <FlutterDocsContext.Provider value={[docs,setDocs]}>
             {props.children}
-        </AndroidDocsContext.Provider>
+        </FlutterDocsContext.Provider>
     )
 }

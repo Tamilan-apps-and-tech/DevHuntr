@@ -13,17 +13,52 @@ import {RepoProvider} from "../data/Github/RepoContext";
 import RepoList from "./Github/Repos/RepoList";
 import TypoCard from "./TypoCard";
 import {AndroidDocsProvider} from "../data/Docs/AndroidDocsContext";
-import AndroidDocsList from "./Docs/AndroidDocsList";
 import {JetpackProvider} from "../data/Libraries/JetpackContext";
 import JetapackList from "./Libraries/JetapackAndroid/JetapackList";
 import {NpmProvider} from "../data/Libraries/NpmContext";
 import NpmList from "./Libraries/Npm/NpmList";
+import resources from "../data/Res.json";
+import {ResContext} from "../data/ResContext";
+import FlutterDocsList from "./Docs/Flutter/FlutterDocsList";
+import MozillaWebDocsList from "./Docs/MozillaWebDocs/MozillaWebDocsList";
+import {MozillaWebDocsProvider} from "../data/Docs/MozillaWebDocsContext";
+import ReactNativeDocsList from "./Docs/ReactNative/ReactNativeDocsList";
+import AndroidDocsList from "./Docs/Android/AndroidDocsList";
+import {FlutterDocsProvider} from "../data/Docs/FlutterDocsContext";
+import {ReactNativeDocsProvider} from "../data/Docs/ReactNativeDocsContext";
+import {DockerDocsProvider} from "../data/Docs/DockerDocsContext";
+import DockerDocsList from "./Docs/Docker/DockerDocsList";
+import {FirebaseDocsProvider} from "../data/Docs/FirebaseDocsContext";
+import FirebaseDocsList from "./Docs/Firebase/FirebaseDocsList";
+import {TensorflowDocsProvider} from "../data/Docs/TensrflowDocsContext";
+import TensorflowDocsCard from "./Docs/Tensorflow/TensorflowDocsCard";
+import TensorflowDocsList from "./Docs/Tensorflow/TensorflowDocsList";
+import {GoogleWebDocsProvider} from "../data/Docs/GoogleWebDocsContext";
+import GoogleWebDocsList from "./Docs/GoogleWeb/GoogleWebDocsList";
+import {GoogleMapDocsProvider} from "../data/Docs/GoogleMapDocsContext";
+import GoogleMapDocsList from "./Docs/GoogleMap/GoogleMapDocsList";
+import {DjangoDocsProvider} from "../data/Docs/DjangoDocsContext";
+import DjangoDocsList from "./Docs/DjangoDocs/DjangoDocsList";
+import {RubyDocsProvider} from "../data/Docs/RubyDocsContext";
+import RubyDocsList from "./Docs/Ruby/RubyDocsList";
+import {DartDocsProvider} from "../data/Docs/DartDocsContext";
+import DartDocsList from "./Docs/Dart/DartDocsList";
+import {KubernetesDocsProvider} from "../data/Docs/KubernetesDocsContext";
+import KubernetesDocsList from "./Docs/Kubernetes/KubernetesDocsList";
+import {GoogleCloudDocsProvider} from "../data/Docs/GoogleCloudDocsContext";
+import GoogleCloudDocsList from "./Docs/GoogleCloud/GoogleCloudDocsList";
+import {JestDocsProvider} from "../data/Docs/JestDocsContext";
+import JestDocsList from "./Docs/Jest/JestDocsList";
+import {MongoDocsProvider} from "../data/Docs/MongoDocsContext";
+import MongoDocsList from "./Docs/Mongo/MongoDocsList";
 
 function ResultsList(props) {
 
 
     const [site,setSite] = useContext(SiteContext)
     const [query,setQuery] = useContext(QueryContext)
+    const [res,setRes] = useContext(ResContext)
+
 
     if (data.sites[site].name === "Github Issues"){
         return (
@@ -68,16 +103,185 @@ function ResultsList(props) {
                 </RepoProvider>
             </div>
         );
-    } if (data.sites[site].name === "Android Docs") {
-        return (
+    } if (data.sites[site].name === "References") {
+
+        if (resources[res].id === 0 ){
+            return (
+                <div className='w-full h-full flex flex-col '>
+                    <AndroidDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <AndroidDocsList/>
+                    </AndroidDocsProvider>
+                </div>
+            );
+        }
+        if (resources[res].id === 1 ){
+            return (
+                <div className='w-full h-full flex flex-col '>
+                    <FlutterDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <FlutterDocsList/>
+                    </FlutterDocsProvider>
+                </div>
+            );
+        }
+        if (resources[res].id === 2 ){
+            return(
             <div className='w-full h-full flex flex-col '>
-                <AndroidDocsProvider>
+                <ReactNativeDocsProvider>
                     <SearchCard/>
                     <TypoCard/>
-                    <AndroidDocsList/>
-                </AndroidDocsProvider>
+                    <ReactNativeDocsList/>
+                </ReactNativeDocsProvider>
             </div>
         );
+        }
+        if (resources[res].id === 3){
+            return(
+                <div className='w-full h-full flex flex-col '>
+                    <MozillaWebDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <MozillaWebDocsList/>
+                    </MozillaWebDocsProvider>
+                </div>
+            );
+        }
+        if (resources[res].id === 4){
+            return(
+                <div className='w-full h-full flex flex-col '>
+                    <DockerDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <DockerDocsList/>
+                    </DockerDocsProvider>
+                </div>
+            );
+        }
+        if (resources[res].id === 5){
+            return(
+                <div className='w-full h-full flex flex-col '>
+                    <FirebaseDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <FirebaseDocsList/>
+                    </FirebaseDocsProvider>
+                </div>
+            );
+        }
+        if (resources[res].id === 6){
+            return(
+                <div className='w-full h-full flex flex-col '>
+                    <TensorflowDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <TensorflowDocsList/>
+                    </TensorflowDocsProvider>
+                </div>
+            );
+        }
+        if (resources[res].id === 7){
+            return(
+                <div className='w-full h-full flex flex-col '>
+                    <GoogleWebDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <GoogleWebDocsList/>
+                    </GoogleWebDocsProvider>
+                </div>
+            );
+        }
+        if (resources[res].id === 8){
+            return(
+                <div className='w-full h-full flex flex-col '>
+                    <GoogleMapDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <GoogleMapDocsList/>
+                    </GoogleMapDocsProvider>
+                </div>
+            );
+        }
+        if (resources[res].id === 9){
+            return(
+                <div className='w-full h-full flex flex-col '>
+                    <DjangoDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <DjangoDocsList/>
+                    </DjangoDocsProvider>
+                </div>
+            );
+        }
+        if (resources[res].id === 10){
+            return(
+                <div className='w-full h-full flex flex-col '>
+                    <RubyDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <RubyDocsList/>
+                    </RubyDocsProvider>
+                </div>
+            );
+        }
+        if (resources[res].id === 11){
+            return(
+                <div className='w-full h-full flex flex-col '>
+                    <DartDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <DartDocsList/>
+                    </DartDocsProvider>
+                </div>
+            );
+        }
+        if (resources[res].id === 12){
+            return(
+                <div className='w-full h-full flex flex-col '>
+                    <JestDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <JestDocsList/>
+                    </JestDocsProvider>
+                </div>
+            );
+        }
+        if (resources[res].id === 13){
+            return(
+                <div className='w-full h-full flex flex-col '>
+                    <MongoDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <MongoDocsList/>
+                    </MongoDocsProvider>
+                </div>
+            );
+        }
+        if (resources[res].id === 14){
+            return(
+                <div className='w-full h-full flex flex-col '>
+                    <KubernetesDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <KubernetesDocsList/>
+                    </KubernetesDocsProvider>
+                </div>
+            );
+        }
+        if (resources[res].id === 15){
+            return(
+                <div className='w-full h-full flex flex-col '>
+                    <GoogleCloudDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <GoogleCloudDocsList/>
+                    </GoogleCloudDocsProvider>
+                </div>
+            );
+        }
+
     } if (data.sites[site].name === "Jetpack Android") {
         return (
             <div className='w-full h-full flex flex-col '>
