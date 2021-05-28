@@ -7,8 +7,12 @@ import {PageContext} from "../data/PageContext";
 import axios from "../utils/BingSpellCheckAxios";
 import { Listbox, Transition } from '@headlessui/react'
 import {ResContext} from "../data/ResContext";
+import firebase from "firebase/app";
+import "firebase/analytics";
 
 function HomeScreen(props) {
+
+
 
     const history = useHistory()
     const [query,setQuery] = useContext(QueryContext)
@@ -79,6 +83,7 @@ function HomeScreen(props) {
     const updateResInpt = (value) =>{
         setResInpt(value)
         setSelectedRes(resources[value])
+        setRes(value)
     }
 
     const updateSiteInpt = (value) =>{
@@ -94,11 +99,14 @@ function HomeScreen(props) {
                 pathname: '/search',
                 search: `?q=${queryinpt}&page=${page}&site=${siteinpt}&res=${resInpt}`
             })
+            firebase.analytics().logEvent('search');
+            firebase.analytics().logEvent('doc_search');
         }else {
             history.push({
                 pathname: '/search',
                 search: `?q=${queryinpt}&page=${page}&site=${siteinpt}`
             })
+            firebase.analytics().logEvent('search_done');
         }
 
     }

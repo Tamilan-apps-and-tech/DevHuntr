@@ -10,8 +10,25 @@ import {SiteProvider} from "./data/SiteContext";
 import {TypoProvider} from "./data/TypoContext";
 import {LoadingProvider} from "./data/LoadingContext";
 import {ResContext, ResProvider} from "./data/ResContext";
+import firebase from "firebase/app";
+import "firebase/analytics";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyB2sfQopgYRMXUN_NQoUPH7eaDcMbF0Lhk",
+    authDomain: "devhuntr-c70d0.firebaseapp.com",
+    projectId: "devhuntr-c70d0",
+    storageBucket: "devhuntr-c70d0.appspot.com",
+    messagingSenderId: "862065698050",
+    appId: "1:862065698050:web:ec6c81e8c5716e043b0e1b",
+    measurementId: "G-DYDR7CPFYJ"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 function App() {
+
+
   return (
       <SiteProvider>
           <ResProvider>

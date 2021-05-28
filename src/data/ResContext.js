@@ -4,7 +4,7 @@ export const ResContext = React.createContext()
 
 export const ResProvider = (props) => {
 
-    const [res,setRes] = useState(16)
+    const [res,setRes] = useState(0)
 
 
 

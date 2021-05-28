@@ -10,11 +10,7 @@ function NpmCard(props) {
                 <h1 className='font-montserrat text-white-secondaryText text-xl ml-6 mb-0 m-4'>{props.item.name}</h1>
             </a>
             <h1 className='font-montserrat text-white-secondaryText text-xl ml-6 m-4 opacity-50'>{props.item.description}</h1>
-            <div className='flex flex-row mb-4 ml-4' >{
-                props.item.keywords.map((item,index) => (
-                    <NpmChip text={item}/>
-                ))
-            }</div>
+
         </div>
     );
 

@@ -30,7 +30,7 @@ app.whenReady().then(() => {
 
 
 
-        win.loadURL('http://localhost:3000/')
+        win.loadURL('http://localhost:3000/#/')
 
 
     const ret = globalShortcut.register('CommandOrControl+d+h', () => {
