@@ -62,5 +62,21 @@
         {
             "id": 15,
             "name": "GoogleCloud"
+        },
+        {
+            "id": 16,
+            "name": "Kotlin"
+        },
+        {
+            "id": 17,
+            "name": "Azure"
+        },
+        {
+            "id": 18,
+            "name": ".NET"
+        },
+        {
+            "id": 19,
+            "name": "Xamarin"
         }
     ]

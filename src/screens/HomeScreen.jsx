@@ -20,7 +20,7 @@ function HomeScreen(props) {
     const [page,setPage] = useContext(PageContext)
     const [res,setRes] = useContext(ResContext)
     const [isResources,setIsResources] = useState(false)
-    const [resInpt,setResInpt] = useState(0)
+    const [resInpt,setResInpt] = useState(res)
     const [queryinpt,setQueryinpt] = useState('')
     const [siteinpt,setSiteinpt] = useState(site)
 
@@ -67,6 +67,10 @@ function HomeScreen(props) {
         { id: 13 , name: 'MongoDb' },
         { id: 14 , name: 'Kubernetes' },
         { id: 15 , name: 'Google Cloud' },
+        {id: 16, name: "Kotlin"},
+        {id: 17, name: "Azure"},
+        {id: 18, name: ".NET"},
+        {id: 19,name: "Xamarin"}
 
     ]
 
@@ -104,7 +108,7 @@ function HomeScreen(props) {
         }else {
             history.push({
                 pathname: '/search',
-                search: `?q=${queryinpt}&page=${page}&site=${siteinpt}`
+                search: `?q=${queryinpt}&page=${page}&site=${siteinpt}&res=${resInpt}`
             })
             firebase.analytics().logEvent('search_done');
         }

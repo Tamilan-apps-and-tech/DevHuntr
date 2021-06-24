@@ -134,6 +134,26 @@ export const UrlProvider = (props) => {
 
                         firebase.analytics().logEvent('googlecloud_doc_search');
                     }
+                    if (resources[res].id === 16) {
+                        setUrl(`/kotlinDocs?code=0M3TtjMD6cZq3PAEOemK3eAHgKLIa/4kqWCdIBEzjkBRCAuj5sklnQ==&q=${query}`)
+
+                        firebase.analytics().logEvent('kotlin_doc_search');
+                    }
+                    if (resources[res].id === 17) {
+                        setUrl(`/azureDocs?code=B5xbBqXhbj/315GgfJJzJnaRcpLXmHW8fF9ws6is85d8xdgG6Q0Qeg==&q=${query}`)
+
+                        firebase.analytics().logEvent('azure_doc_search');
+                    }
+                    if (resources[res].id === 18) {
+                        setUrl(`/dotnetDocs?code=8mj1T9vzyQaQncUL4BmanEKThjQd7/dq9V0Q76M43MjqfYqe6hSvYg==&q=${query}`)
+
+                        firebase.analytics().logEvent('dotnet_doc_search');
+                    }
+                    if (resources[res].id === 19) {
+                        setUrl(`/xamarinDocs?code=KcDHCkrX4aPXk4hUo2YEtIFsj/6CJm4dNxFBFqqoQhlW28fqxyhKaQ==&q=${query}`)
+
+                        firebase.analytics().logEvent('xamarin_doc_search');
+                    }
                 }
             }
         }

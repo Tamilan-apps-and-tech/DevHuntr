@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import {TypoContext} from "../data/TypoContext";
 import {PageContext} from "../data/PageContext";
 import {SiteContext} from "../data/SiteContext";
+import {ResContext} from "../data/ResContext";
 import {useHistory} from "react-router-dom";
 
 function TypoCard(props) {
@@ -9,6 +10,7 @@ function TypoCard(props) {
     const [page,setPage] = useContext(PageContext)
     const [site,setSite] = useContext(SiteContext)
     const [typo,setTypo] = useContext(TypoContext)
+    const [res,setRes] = useContext(ResContext)
 
 
     const history = useHistory()
@@ -16,7 +18,7 @@ function TypoCard(props) {
         e.preventDefault()
             history.push({
                 pathname: '/search',
-                search: `?q=${typo}&page=${page}&site=${site}`
+                search: `?q=${typo}&page=${page}&site=${site}&res=${res}`
             })
 
     }

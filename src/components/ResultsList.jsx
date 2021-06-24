@@ -51,6 +51,15 @@ import {JestDocsProvider} from "../data/Docs/JestDocsContext";
 import JestDocsList from "./Docs/Jest/JestDocsList";
 import {MongoDocsProvider} from "../data/Docs/MongoDocsContext";
 import MongoDocsList from "./Docs/Mongo/MongoDocsList";
+import KotlinDocsCard from "./Docs/Kotlin/KotlinDocsCard";
+import {KotlinDocsProvider} from "../data/Docs/KotlinDocsContext";
+import {AzureDocsProvider} from "../data/Docs/AzureDocsContext";
+import KotlinDocsList from "./Docs/Kotlin/KoltinDocsList";
+import AzureDocsList from "./Docs/Azure/AzureDocsList";
+import {DotnetDocsProvider} from "../data/Docs/DotnetDocsContext";
+import DotnetDocsList from "./Docs/DotNet/DotnetDocsList";
+import XamarinDocsList from "./Docs/Xamarin/XamarinDocsList";
+import {XamarinDocsProvider} from "../data/Docs/XamarinDocsContext";
 
 function ResultsList(props) {
 
@@ -278,6 +287,51 @@ function ResultsList(props) {
                         <TypoCard/>
                         <GoogleCloudDocsList/>
                     </GoogleCloudDocsProvider>
+                </div>
+            );
+        }
+        if (resources[res].id === 16){
+            return(
+                <div className='w-full h-full flex flex-col '>
+                    <KotlinDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <KotlinDocsList/>
+                    </KotlinDocsProvider>
+                </div>
+            );
+        }
+        if (resources[res].id === 17){
+            return(
+                <div className='w-full h-full flex flex-col '>
+                    <AzureDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <AzureDocsList/>
+                    </AzureDocsProvider>
+                </div>
+            );
+        }
+        if (resources[res].id === 18){
+            return(
+                <div className='w-full h-full flex flex-col '>
+                    <DotnetDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <DotnetDocsList/>
+                    </DotnetDocsProvider>
+                </div>
+            );
+        }
+
+        if (resources[res].id === 19){
+            return(
+                <div className='w-full h-full flex flex-col '>
+                    <XamarinDocsProvider>
+                        <SearchCard/>
+                        <TypoCard/>
+                        <XamarinDocsList/>
+                    </XamarinDocsProvider>
                 </div>
             );
         }

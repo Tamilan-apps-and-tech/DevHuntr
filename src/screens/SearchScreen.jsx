@@ -6,6 +6,7 @@ import {SiteContext} from "../data/SiteContext";
 import ResultsList from "../components/ResultsList";
 import axios from "../utils/BingSpellCheckAxios";
 import {ResContext} from "../data/ResContext";
+import * as sdk from "microsoft-cognitiveservices-speech-sdk";
 
 
 function SearchScreen(props) {
@@ -25,6 +26,7 @@ function SearchScreen(props) {
     let siteparam = useQuery().get('site')
     const [site,setSite] = useContext(SiteContext)
     setSite(siteparam)
+
 
 
     let resparam = useQuery().get('res')

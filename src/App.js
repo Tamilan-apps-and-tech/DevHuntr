@@ -41,8 +41,8 @@ function App() {
       <main>
           <HashRouter basename={process.env.PUBLIC_URL}>
           <Switch>
-              <Route path='/search' component={SearchScreen} />
-              <Route path='/' component={HomeScreen} />
+              <Route path='/search' component={SearchScreen}/>
+              <Route path='/' component={HomeScreen}/>
           </Switch>
           </HashRouter>
       </main>

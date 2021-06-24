@@ -63,6 +63,10 @@ function SearchCard(props) {
         { id: 13 , name: 'MongoDb' },
         { id: 14 , name: 'Kubernetes' },
         { id: 15 , name: 'Google Cloud' },
+        {id: 16, name: "Kotlin"},
+        {id: 17, name: "Azure"},
+        {id: 18, name: ".NET"},
+        {id: 19,name: "Xamarin"}
 
     ]
 
@@ -94,6 +98,7 @@ function SearchCard(props) {
                 pathname: '/search',
                 search: `?q=${query}&page=1&site=${siteinpt}&res=${resInpt}`
             })
+            window.location.reload()
 
         }else{
 
@@ -101,6 +106,8 @@ function SearchCard(props) {
                 pathname: '/search',
                 search: `?q=${queryinpt}&page=1&site=${siteinpt}&res=${resInpt}`
             })
+            window.location.reload()
+
 
         }
     }
@@ -109,7 +116,7 @@ function SearchCard(props) {
     return (
 
 
-        <form  className='drop-shadow-xl bg-black-secondary self-center my-5 flex rounded-full flex w-1/2 justify-between z-10 font-montserrat text-lgshadow-2xl'>
+        <form  className='drop-shadow-xl bg-black-secondary self-center my-1 flex rounded-full flex w-1/2 justify-between z-10 font-montserrat text-lgshadow-2xl'>
             <input  defaultValue={query} onChange={updateQueryInpt}
                     className='mt-2 mb-2 ml-5 p-2 w-9/12 border-none bg-transparent outline-none text-white-secondaryText placeholder-white-secondaryText drop-shadow-2xl'/>
             <div className='w-1/4 mr-2 p-2  '>

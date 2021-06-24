@@ -5,10 +5,6 @@ export const ResContext = React.createContext()
 export const ResProvider = (props) => {
 
     const [res,setRes] = useState(0)
-
-
-
-
     return(
         <ResContext.Provider value={[res,setRes]}>
             {props.children}
