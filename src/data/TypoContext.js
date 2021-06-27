@@ -22,7 +22,7 @@ export const TypoProvider = (props) => {
         if (query !== ""){
             axios.get(`https://api.bing.microsoft.com/v7.0/spellcheck?text=${query}&mode=spell`,{
                 headers:{
-                    "Ocp-Apim-Subscription-Key":"744b9a40e5774c6e8f3ae65a0d21b4a7"
+                    "Ocp-Apim-Subscription-Key":"b934d9f24f3d41d8850a5ac9eff9884f"
                 }
             }) .then((response) => {
                     const tokens = response.data.flaggedTokens
